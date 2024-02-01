@@ -276,6 +276,22 @@ end
 ```
 <img :src="('/assets/img/dashboards/custom_partial_card.jpg')" alt="Custom partial card" class="border mb-4" />
 
+Methods created inside the partial card can be accessed via the `@card` instance variable. 
+
+```ruby{5}
+class Avo::Cards::ExampleCustomPartial < Avo::Cards::PartialCard
+  ...
+  def foo
+    "hello from the partial"
+  end
+end
+```
+
+```ruby{5}
+# app/views/avo/cards/_custom_card
+<div><%= @card.foo %></div>
+```
+
 You can embed a piece of content from another app using an iframe. You can hide the header using the `self.display_header = false` option. That will render the embedded content flush to the container.
 
 ```ruby{5}
