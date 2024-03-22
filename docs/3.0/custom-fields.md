@@ -320,6 +320,30 @@ progress[value]::-moz-progress-bar {
 }
 ```
 
+## Field styles
+
+To use Tailwinds utility classes inside a custom field, you have to integrate it as described [in the docs](https://docs.avohq.io/3.0/tailwindcss-integration.html). After that you need to adds the path to your components on the purge list. For example:
+
+```javascript
+const avoPreset = require('../tmp/avo/tailwind.preset.js')
+
+module.exports = {
+    presets: [avoPreset],
+    content: [
+        ...avoPreset.content,
+        './public/*.html',
+        './app/helpers/**/*.rb',
+        './app/javascript/**/*.js',
+        './app/components/**/*.{html.erb,rb}',
+        './app/views/**/*.{erb,haml,html,slim}',
+    ],
+    theme: {
+    },
+    plugins: [
+    ]
+}
+```
+
 ## Use pre-built Stimulus controllers
 
 Avo ships with a few Stimulus controllers that help you build more dynamic fields.
